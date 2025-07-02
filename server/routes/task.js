@@ -18,9 +18,10 @@ router.post("/", async (req, res) => {
 });
 
 //toggle task completion
-router.put("/:id", async (res,req) => {
+router.put("/:id", async (req,res) => {
+    
     const task =await Task.findById(req.params.id);
-    task.completed = !taskk.completed;
+    task.completed = !task.completed;
     await task.save();
     res.json(task);
 });
